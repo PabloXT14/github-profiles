@@ -27,7 +27,7 @@ async function handleClearUserData() {
     </div>
 
     <Button @click="handleClearUserData">
-      <Icon icon="octicon:search-16" />
+      <Icon icon="octicon:arrow-left-16" />
       <span class="hidden md:inline">
         Nova busca
       </span>

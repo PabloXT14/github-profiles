@@ -9,7 +9,7 @@ import RepositoriesSection from '@/components/RepositoriesSection.vue';
 <template>
   <div class="flex flex-col min-h-screen">
     <Header />
-    <section class="flex-1 flex">
+    <section class="flex flex-col lg:flex-row">
       <ProfileSection />
       <Divider />
       <RepositoriesSection />

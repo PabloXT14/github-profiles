@@ -4,11 +4,14 @@ import { Icon } from '@iconify/vue'
 import { useRouter } from 'vue-router'
 
 import Button from './Button.vue';
+import { useGitHubStore } from '@/stores/GitHubStore';
+
+const githubStore = useGitHubStore()
 
 const router = useRouter()
 
 async function handleClearUserData() {
-  console.log('handleClearUserData')
+  await githubStore.clearAllData()
   await router.push('/')
 }
 

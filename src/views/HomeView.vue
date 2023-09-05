@@ -1,7 +1,13 @@
 <script setup lang="ts">
 import { Icon } from '@iconify/vue'
+import { ref } from 'vue';
 
 import Button from '@/components/Button.vue';
+import Input from '@/components/Input.vue';
+
+const input = ref('');
+
+console.log(input.value)
 
 </script>
 
@@ -27,5 +33,11 @@ import Button from '@/components/Button.vue';
         Button
       </span>
     </Button>
+
+    <Input type="text" class="m-4" placeholder="Username" v-model="input" />
+
+    <span>
+      {{ input }}
+    </span>
   </main>
 </template>

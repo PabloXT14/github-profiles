@@ -46,6 +46,7 @@ const buttonClass = computed(() => {
   <component
     :is="props.as"
     :class="buttonClass"
+    v-bind="$attrs"
   >
     <slot />
   </component>

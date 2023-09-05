@@ -37,7 +37,7 @@ onMounted(async () => {
       class="flex items-center px-4 gap-2 h-full border-b-4"
       :class="[currentRoute === 'repositories' ? 'border-b-red-400' : 'border-b-transparent']"
     >
-      <span class="text-zinc-200 text-xl font-bold">
+      <span class="text-zinc-200 text-xs font-bold sm:text-base md:text-xl">
         Repositórios
       </span>
       <Tag variant="gray">
@@ -50,7 +50,7 @@ onMounted(async () => {
       class="flex items-center px-4 gap-2 h-full border-b-4"
       :class="[currentRoute === 'starred' ? 'border-b-red-400' : 'border-b-transparent']"
     >
-      <span class="text-zinc-200 text-xl font-bold">
+      <span class="text-zinc-200 text-xs font-bold sm:text-base md:text-xl">
         Starred
       </span>
       <Tag variant="gray">

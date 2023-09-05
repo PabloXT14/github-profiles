@@ -9,9 +9,9 @@ const githubStore = useGitHubStore();
 </script>
 
 <template>
-  <div class="flex gap-6">
+  <div class="flex flex-col gap-2 w-full md:gap-6 md:flex-row">
     <Input type="text" placeholder="Nome do repositório..." class="w-full" v-model="githubStore.searchFilter"/>
-    <Button class="flex-1">
+    <Button class="md:flex-1">
       Pesquisar
     </Button>
   </div>

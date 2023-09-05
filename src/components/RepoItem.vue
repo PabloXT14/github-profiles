@@ -19,7 +19,7 @@ const currentRoute = router.currentRoute.value.name
 
 <template>
   <li
-    class="flex flex-col gap-3 py-5 border-b border-b-zinc-500 first:border-t first:border-t-zinc-500"
+    class="flex flex-col flex-1 items-start gap-3 py-5 border-b border-b-zinc-500 first:border-t first:border-t-zinc-500"
   >
     <a
       :href="props.repo.html_url"
@@ -33,7 +33,7 @@ const currentRoute = router.currentRoute.value.name
       {{ props.repo.description }}
     </p>
 
-    <div class="flex gap-[2px]">
+    <div class="flex gap-x-[2px] gap-y-2 flex-wrap">
       <Tag
         v-for="tag in props.repo.topics"
         :key="props.repo.id+tag.toString()"

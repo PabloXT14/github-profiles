@@ -21,14 +21,16 @@ async function handleClearUserData() {
   <header class="flex items-center justify-between px-8 h-20 bg-zinc-950">
     <div class="flex items-center gap-3">
       <img src="../assets/github-logo.svg" alt="" class="w-11">
-      <h1 class="text-3xl text-zinc-100 font-bold leading-none">
+      <h1 class="text-xl md:text-3xl text-zinc-100 font-bold leading-none">
         GitHub Profiles
       </h1>
     </div>
 
     <Button @click="handleClearUserData">
       <Icon icon="octicon:search-16" />
-      Nova busca
+      <span class="hidden md:inline">
+        Nova busca
+      </span>
     </Button>
   </header>
 </template>

@@ -3,5 +3,5 @@
 </script>
 
 <template>
-  <div class="bg-zinc-500 w-full max-w-[1px] my-5" />
+  <div class="bg-zinc-500 lg:w-full lg:max-w-[1px] my-5 hidden" />
 </template>

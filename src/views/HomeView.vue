@@ -1,48 +1,49 @@
 <script setup lang="ts">
-import { Icon } from '@iconify/vue'
 import { ref } from 'vue';
+import { useRouter } from 'vue-router'
 
 import Button from '@/components/Button.vue';
 import Input from '@/components/Input.vue';
-import Tag from '@/components/Tag.vue';
 
-const input = ref('');
+const inputUsername = ref('');
 
-console.log(input.value)
+const router = useRouter();
+
+async function handleFetchUserData(event: Event) {
+  event.preventDefault();
+  console.log(inputUsername.value);
+  router.push('/repositories')
+}
 
 </script>
 
 <template>
-  <main>
-    <h1>This is an home page</h1>
-    <Button
-      as="button"
-      class="m-4"
-    >
-      <Icon icon="octicon:mark-github-16" />
-      <span>
-        Button
-      </span>
-    </Button>
-    <Button
-      as="button"
-      variant="gray"
-      class="m-4"
-    >
-      <Icon icon="octicon:mark-github-16" />
-      <span>
-        Button
-      </span>
-    </Button>
+  <main class="flex items-center justify-center min-h-screen p-4 sm:px-20">
+    <div class="flex justify-center items-center gap-[130px] mx-auto">
+      <section class="flex-1 flex flex-col items-center gap-14 max-w-[436px] w-full">
+        <img src="../assets/github-logo.svg" alt="" />
 
-    <Input type="text" class="m-4" placeholder="Username" v-model="input" />
+        <h1 class="text-[4rem] font-bold text-center leading-none">
+          GitHub <br/> Profiles
+        </h1>
 
-    <span>
-      {{ input }}
-    </span>
+        <p class="text-zinc-300 text-base leading-tight text-center sm:text-left">
+          Exiba seu perfil do GitHub em detalhes! Digite seu username abaixo para começar
+        </p>
 
-    <Tag variant="gray" class="m-4">
-      tag-name
-    </Tag>
+        <form
+          @submit="handleFetchUserData"
+          class="w-full flex flex-col gap-8"
+        >
+          <Input type="text" class="w-full" placeholder="Username" v-model="inputUsername" />
+          <Button type="submit" class="w-full">
+            Buscar
+          </Button>
+        </form>
+      </section>
+      <section class="hidden lg:flex flex-1 items-center justify-center  max-w-[600] w-full">
+        <img src="../assets/github-pet.png" alt="" class="w-full">
+      </section>
+    </div>
   </main>
 </template>

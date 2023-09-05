@@ -1,7 +1,10 @@
-import { ref, reactive } from 'vue'
+import { ref, computed, watch } from 'vue'
 import { defineStore } from 'pinia'
+import { useRouter } from 'vue-router'
 
-interface User {
+import { api } from '@/libs/axios';
+
+export interface User {
   id: number;
   name: string;
   login: string;
@@ -12,7 +15,7 @@ interface User {
   following: number;
 }
 
-interface Repository {
+export interface Repository {
   id: number;
   name: string;
   description: string;
@@ -20,25 +23,107 @@ interface Repository {
   topics: string[];
   language: string;
   forks: number;
-  license: string;
+  license: {
+    name: string;
+  };
+  stargazers_count: number;
 }
 
 export const useGitHubStore = defineStore('github', () => {
+  const currentRoute = useRouter().currentRoute.value.name
+
   // states
-  const username = ref('')
+  const githubUsernameLocalStorageKey = '@github-profiles:username'
 
-  let user = reactive<User>({} as User)
+  const username = ref(getUsernameFromLocalStorage() || '')
 
-  let repositories = reactive<Repository[]>([])
+  const totalRepositories = ref(0)
+
+  const totalStarredRepositories = ref(0)
+
+
+  const user = ref<User>({} as User)
+
+  const repositories = ref<Repository[]>([])
+
+  const searchFilter = ref('')
+
+  const filteredRepositories = computed(() => {
+    return repositories.value.filter((repository) => {
+      return repository.name.toLowerCase().includes(searchFilter.value.toLowerCase())
+    })
+  })
+
 
   // computed or getters
+  watch(username, () => {
+    setUsernameToLocalStorage()
+  }, {
+    deep: true
+  })
 
   // actions
-  function clearAllData() {
-    username.value = ''
-    user = {} as User
-    repositories = []
+  async function getTotals() {
+    totalRepositories.value = await api.get(`https://api.github.com/users/${username.value}/repos`).then(res => res.data.length)
+    totalStarredRepositories.value = await api.get(`https://api.github.com/users/${username.value}/starred`).then(res => res.data.length)
   }
 
-  return { username, user, repositories }
+  function setUsernameToLocalStorage() {
+    localStorage.setItem(githubUsernameLocalStorageKey, username.value)
+  }
+
+  function getUsernameFromLocalStorage() {
+    return localStorage.getItem(githubUsernameLocalStorageKey)
+  }
+
+  function clearAllData() {
+    username.value = ''
+    user.value = {} as User 
+    repositories.value = []
+  }
+
+  async function fetchUser() {
+    const response = await api.get(`https://api.github.com/users/${username.value}`)
+
+    user.value = response.data
+  }
+
+  async function fetchRepositories() {
+    if (!username.value) {
+      return
+    }
+
+    searchFilter.value = ''
+
+    const response = await api.get(`https://api.github.com/users/${username.value}/repos`)
+
+    repositories.value = response.data
+  }
+
+  async function fetchStarredRepositories() {
+    if (!username.value) {
+      return
+    }
+
+    searchFilter.value = ''
+
+    const response = await api.get(`https://api.github.com/users/${username.value}/starred`)
+
+    repositories.value = response.data
+  }
+
+  return {
+    username,
+    totalRepositories,
+    totalStarredRepositories,
+    user,
+    repositories,
+    searchFilter,
+    filteredRepositories,
+    getTotals,
+    clearAllData, 
+    fetchUser,
+    fetchRepositories,
+    fetchStarredRepositories,
+  }
 })

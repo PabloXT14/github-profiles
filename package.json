@@ -12,6 +12,7 @@
     "format": "prettier --write src/"
   },
   "dependencies": {
+    "@iconify/vue": "^4.1.1",
     "axios": "^1.5.0",
     "pinia": "^2.1.6",
     "tailwind-merge": "^1.14.0",

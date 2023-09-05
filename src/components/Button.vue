@@ -5,7 +5,7 @@ import { tv } from 'tailwind-variants'
 
 interface ButtonProps {
   as?: string | Object,
-  variant: 'green' | 'gray',
+  variant?: 'green' | 'gray',
   class?: string
 }
 

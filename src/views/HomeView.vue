@@ -1,18 +1,26 @@
 <script setup lang="ts">
-import { ref } from 'vue';
 import { useRouter } from 'vue-router'
 
 import Button from '@/components/Button.vue';
 import Input from '@/components/Input.vue';
-
-const inputUsername = ref('');
+import { useGitHubStore } from '@/stores/GitHubStore';
+import { api } from '@/libs/axios'
 
 const router = useRouter();
 
+const githubStore = useGitHubStore()
+
 async function handleFetchUserData(event: Event) {
   event.preventDefault();
-  console.log(inputUsername.value);
-  router.push('/repositories')
+  try {
+    await githubStore.fetchUser();
+    await githubStore.fetchRepositories()
+    await router.push('/repositories')
+  } catch (error) {
+    console.log(error);
+    alert('Erro ao buscar usuario')
+  }
+  
 }
 
 </script>
@@ -35,7 +43,7 @@ async function handleFetchUserData(event: Event) {
           @submit="handleFetchUserData"
           class="w-full flex flex-col gap-8"
         >
-          <Input type="text" class="w-full" placeholder="Username" v-model="inputUsername" />
+          <Input type="text" class="w-full" placeholder="Username" v-model="githubStore.username" />
           <Button type="submit" class="w-full">
             Buscar
           </Button>

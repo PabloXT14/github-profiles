@@ -43,7 +43,7 @@ import Button from './Button.vue';
         href="https://github.com/PabloXT14"
         target="_blank"
       >
-        <Icon icon="" />
+        <Icon icon="octicon:mark-github-16" />
         Perfil no GitHub
       </Button>
     </div>

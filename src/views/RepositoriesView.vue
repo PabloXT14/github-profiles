@@ -7,7 +7,7 @@ import RepositoriesSection from '@/components/RepositoriesSection.vue';
 </script>
 
 <template>
-  <div class="flex flex-col">
+  <div class="flex flex-col min-h-screen">
     <Header />
     <section class="flex-1 flex">
       <ProfileSection />

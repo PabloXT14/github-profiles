@@ -18,6 +18,10 @@ const router = createRouter({
       path: '/starred',
       name: 'starred',
       component: () => import('../views/StarredView.vue')
+    },
+    {
+      path: '/:pathMatch(.*)*',
+      redirect: '/'
     }
   ]
 })

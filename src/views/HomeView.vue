@@ -4,6 +4,7 @@ import { ref } from 'vue';
 
 import Button from '@/components/Button.vue';
 import Input from '@/components/Input.vue';
+import Tag from '@/components/Tag.vue';
 
 const input = ref('');
 
@@ -39,5 +40,9 @@ console.log(input.value)
     <span>
       {{ input }}
     </span>
+
+    <Tag variant="gray" class="m-4">
+      tag-name
+    </Tag>
   </main>
 </template>

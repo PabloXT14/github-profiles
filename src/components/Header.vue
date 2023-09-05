@@ -1,11 +1,15 @@
 <!-- eslint-disable vue/multi-word-component-names -->
 <script setup lang="ts">
 import { Icon } from '@iconify/vue'
+import { useRouter } from 'vue-router'
 
 import Button from './Button.vue';
 
-function handleClearUserData() {
+const router = useRouter()
+
+async function handleClearUserData() {
   console.log('handleClearUserData')
+  await router.push('/')
 }
 
 </script>

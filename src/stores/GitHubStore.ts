@@ -1,6 +1,5 @@
-import { ref, computed, watch } from 'vue'
+import { ref, computed } from 'vue'
 import { defineStore } from 'pinia'
-import { useRouter } from 'vue-router'
 
 import { api } from '@/libs/axios';
 
@@ -30,17 +29,12 @@ export interface Repository {
 }
 
 export const useGitHubStore = defineStore('github', () => {
-  const currentRoute = useRouter().currentRoute.value.name
-
   // states
-  const githubUsernameLocalStorageKey = '@github-profiles:username'
-
-  const username = ref(getUsernameFromLocalStorage() || '')
+  const username = ref('')
 
   const totalRepositories = ref(0)
 
   const totalStarredRepositories = ref(0)
-
 
   const user = ref<User>({} as User)
 
@@ -54,26 +48,10 @@ export const useGitHubStore = defineStore('github', () => {
     })
   })
 
-
-  // computed or getters
-  watch(username, () => {
-    setUsernameToLocalStorage()
-  }, {
-    deep: true
-  })
-
   // actions
   async function getTotals() {
     totalRepositories.value = await api.get(`https://api.github.com/users/${username.value}/repos`).then(res => res.data.length)
     totalStarredRepositories.value = await api.get(`https://api.github.com/users/${username.value}/starred`).then(res => res.data.length)
-  }
-
-  function setUsernameToLocalStorage() {
-    localStorage.setItem(githubUsernameLocalStorageKey, username.value)
-  }
-
-  function getUsernameFromLocalStorage() {
-    return localStorage.getItem(githubUsernameLocalStorageKey)
   }
 
   function clearAllData() {

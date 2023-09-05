@@ -4,7 +4,6 @@ import { useRouter } from 'vue-router'
 import Button from '@/components/Button.vue';
 import Input from '@/components/Input.vue';
 import { useGitHubStore } from '@/stores/GitHubStore';
-import { api } from '@/libs/axios'
 
 const router = useRouter();
 

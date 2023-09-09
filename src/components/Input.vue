@@ -10,6 +10,7 @@ interface InputProps {
 
 const props = withDefaults(defineProps<InputProps>(), {
   modelValue: '',
+  class: '',
 })
 
 defineEmits(['update:modelValue'])
@@ -17,9 +18,9 @@ defineEmits(['update:modelValue'])
 const inputClass = computed(() => {
   return tv({
     base: [
-      "rounded-md px-4 h-10 text-base font-normal bg-transparent border border-zinc-700 outline-none placeholder:text-zinc-500",
-      "transition-all duration-150 ease-in-out",
-      "focus:ring-2 focus:ring-blue-500 focus:border-blue-500",
+      'rounded-md px-4 h-10 text-base font-normal bg-transparent border border-zinc-700 outline-none placeholder:text-zinc-500',
+      'transition-all duration-150 ease-in-out',
+      'focus:ring-2 focus:ring-blue-500 focus:border-blue-500',
     ],    
     variants: {},
     defaultVariants: {}
@@ -36,5 +37,5 @@ const inputClass = computed(() => {
     @input="$emit('update:modelValue', ($event.target as HTMLInputElement).value)"
     :class="inputClass"
     v-bind="$attrs"
-  />
+  >
 </template>

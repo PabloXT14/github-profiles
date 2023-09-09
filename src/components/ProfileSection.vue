@@ -12,8 +12,11 @@ const githubStore = useGitHubStore()
     <div class="flex flex-col w-full">
       <div class="flex flex-col justify-start items-center mb-4 sm:flex-row lg:flex-col">
         <div class="sm:mr-4">
-          <img :src="githubStore.user.avatar_url" alt=""
-          class="max-w-[250px] w-full mx-auto border-2 border-zinc-600 rounded-full" />
+          <img
+            :src="githubStore.user.avatar_url"
+            alt=""
+            class="max-w-[250px] w-full mx-auto border-2 border-zinc-600 rounded-full"
+          >
         </div>
 
         <div class="flex flex-col w-full">
@@ -30,7 +33,10 @@ const githubStore = useGitHubStore()
           </p>
 
           <div class="flex-wrap mb-4 flex items-center gap-2 text-zinc-400 text-sm font-light">
-            <Icon icon="octicon:people-16" class="text-zinc-400" />
+            <Icon
+              icon="octicon:people-16"
+              class="text-zinc-400"
+            />
             <p>
               <span class="text-zinc-200 font-bold">
                 {{ githubStore.user.followers }}
@@ -49,7 +55,12 @@ const githubStore = useGitHubStore()
           </div>
         </div>
       </div>
-      <Button variant="gray" as="a" :href="githubStore.user.html_url" target="_blank">
+      <Button
+        variant="gray"
+        as="a"
+        :href="githubStore.user.html_url"
+        target="_blank"
+      >
         <Icon icon="octicon:mark-github-16" />
         Perfil no GitHub
       </Button>

@@ -1,17 +1,17 @@
 <!-- eslint-disable vue/multi-word-component-names -->
 <script setup lang="ts">
 import { computed } from 'vue';
-import { tv } from 'tailwind-variants'
+import { tv } from 'tailwind-variants';
 
 interface TagProps {
-  variant?: 'blue' | 'gray'
-  class?: string
+  variant?: 'blue' | 'gray';
+  class?: string;
 }
 
 const props = withDefaults(defineProps<TagProps>(), {
   variant: 'blue',
   class: '',
-})
+});
 
 const tagClass = computed(() => {
   return tv({
@@ -28,17 +28,16 @@ const tagClass = computed(() => {
           'focus:text-zinc-800 focus:bg-zinc-300',
           'hover:text-zinc-800 hover:bg-zinc-300',
         ],
-      }
+      },
     },
     defaultVariants: {
-      variant: 'blue'
-    }
+      variant: 'blue',
+    },
   })({
     variant: props.variant,
     class: props.class,
-  })
-})
-
+  });
+});
 </script>
 
 <template>

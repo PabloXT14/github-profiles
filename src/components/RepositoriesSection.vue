@@ -2,11 +2,10 @@
 import Menu from './Menu.vue';
 import RepositoriesList from './RepositoriesList.vue';
 import Search from './Search.vue';
-
 </script>
 
 <template>
-  <main class="flex gap-9 flex-col py-10 px-6 flex-1">
+  <main class="flex flex-1 flex-col gap-9 px-6 py-10">
     <Menu />
     <Search />
     <RepositoriesList />

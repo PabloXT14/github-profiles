@@ -4,11 +4,10 @@ import { useGitHubStore } from '@/stores/GitHubStore';
 import RepoItem from './RepoItem.vue';
 
 const githubStore = useGitHubStore();
-
 </script>
 
 <template>
-  <ul class="flex flex-col flex-1 overflow-y-auto">
+  <ul class="flex flex-1 flex-col overflow-y-auto">
     <RepoItem
       v-for="repo in githubStore.filteredRepositories"
       :key="repo.id"

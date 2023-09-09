@@ -1,19 +1,19 @@
 <!-- eslint-disable vue/multi-word-component-names -->
 <script setup lang="ts">
 import { computed } from 'vue';
-import { tv } from 'tailwind-variants'
+import { tv } from 'tailwind-variants';
 
 interface ButtonProps {
-  as?: string | object,
-  variant?: 'green' | 'gray',
-  class?: string
+  as?: string | object;
+  variant?: 'green' | 'gray';
+  class?: string;
 }
 
 const props = withDefaults(defineProps<ButtonProps>(), {
   as: 'button',
   variant: 'green',
-  class: ''
-})
+  class: '',
+});
 
 const buttonClass = computed(() => {
   return tv({
@@ -29,18 +29,17 @@ const buttonClass = computed(() => {
           'bg-zinc-800 border-zinc-700 text-zinc-300 border',
           'focus:bg-zinc-700 focus:border-zinc-500 focus:text-zinc-200',
           'hover:bg-zinc-700 hover:border-zinc-500 hover:text-zinc-200',
-        ]
-      }
+        ],
+      },
     },
     defaultVariants: {
-      variant: 'green'
-    }
+      variant: 'green',
+    },
   })({
     variant: props.variant,
-    class: props.class
-  })
-})
-
+    class: props.class,
+  });
+});
 </script>
 
 <template>

@@ -2,41 +2,40 @@
 <script setup lang="ts">
 import type { Repository } from '@/stores/GitHubStore';
 import Tag from './Tag.vue';
-import { Icon } from '@iconify/vue'
+import { Icon } from '@iconify/vue';
 import { useRouter } from 'vue-router';
 
 interface RepoItemProps {
-  repo: Repository
+  repo: Repository;
 }
 
-const props = defineProps<RepoItemProps>()
+const props = defineProps<RepoItemProps>();
 
-const router = useRouter()
+const router = useRouter();
 
-const currentRoute = router.currentRoute.value.name
-
+const currentRoute = router.currentRoute.value.name;
 </script>
 
 <template>
   <li
-    class="flex flex-col flex-1 items-start gap-3 py-5 border-b border-b-zinc-500 first:border-t first:border-t-zinc-500"
+    class="flex flex-1 flex-col items-start gap-3 border-b border-b-zinc-500 py-5 first:border-t first:border-t-zinc-500"
   >
     <a
       :href="props.repo.html_url"
-      class="text-blue-600 text-xl font-semibold leading-normal hover:underline focus:underline"
+      class="text-xl font-semibold leading-normal text-blue-600 hover:underline focus:underline"
       target="_blank"
     >
       {{ props.repo.name }}
     </a>
 
-    <p class="text-zinc-300 text-sm leading-normal">
+    <p class="text-sm leading-normal text-zinc-300">
       {{ props.repo.description }}
     </p>
 
-    <div class="flex gap-x-[2px] gap-y-2 flex-wrap">
+    <div class="flex flex-wrap gap-x-[2px] gap-y-2">
       <Tag
         v-for="tag in props.repo.topics"
-        :key="props.repo.id+tag.toString()"
+        :key="props.repo.id + tag.toString()"
         variant="blue"
       >
         {{ tag }}
@@ -68,7 +67,7 @@ const currentRoute = router.currentRoute.value.name
       <div class="flex items-center gap-[2px] text-zinc-300">
         <Icon icon="octicon:law-16" />
         <span class="text-xs">
-          {{ props.repo.license ? props.repo.license.name : 'Sem Licença' }}
+          {{ props.repo.license ? props.repo.license.name : "Sem Licença" }}
         </span>
       </div>
     </div>

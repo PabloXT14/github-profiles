@@ -63,11 +63,11 @@ Você pode visualizar o layout do projeto através [desse link](https://www.figm
 
 Veja uma demonstração visual das principais telas da aplicação:
 
-### Home
+### Login
 
 <p align="center">
   <img
-    src=".github/assets/home-page.png"
+    src=".github/assets/login-page.png"
     alt="Home Page Demonstration"
     title="Home Page Demonstration"
     width="100%"

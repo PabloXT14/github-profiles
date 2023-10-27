@@ -1,6 +1,6 @@
 <h1 align="center">
   <img
-    src=".github/assets/logo.svg"
+    src=".github/assets/logo.png"
     title="Logo GitHub Profiles"
     alt="Logo GitHub Profiles"
     width="30px"
@@ -47,127 +47,51 @@
 
 ## 💻 About
 
-O projeto **Book Wise** é uma plataforma de recomendações de livros para leitores, um lugar onde eles possam avaliar e ver avaliações de outros leitores sobre os mais diversos livros.
-
-Vale ressaltar que este projeto foi desenvolvido como conclusão de um desafio proposto no curso/trilha **Ignite React** oferecido pela [Rocketseat](https://www.rocketseat.com.br/).
+O projeto **GitHub Profiles** consiste em uma aplicação que mostra os principais detalhes do perfil de um usuário do GitHub, além de também listar os principais repositórios (pessoas e favoritados) deste mesmo usuário.
 
 ---
 
 ## 🔗 Deploy
 
-O deploy da aplicação pode ser acessada através da seguinte URL base: https://pabloxt14-book-wise.vercel.app/
+O deploy da aplicação pode ser acessada através da seguinte URL base: https://pabloxt14-github-profiles.netlify.app/
 
 ---
 
 ## 🎨 Layout
 
-Você pode visualizar o layout do projeto através [desse link](https://www.figma.com/file/jTau6bMNSF10GkqwYAbuLA/BookWise/duplicate). É necessário ter conta no [Figma](https://www.figma.com/) para acessá-lo.
+Você pode visualizar o layout do projeto através [desse link](https://www.figma.com/file/2UC4osBKHXJUojmY67aHDD/Github-Profiles/duplicate). É necessário ter conta no [Figma](https://www.figma.com/) para acessá-lo.
 
 Veja uma demonstração visual das principais telas da aplicação:
 
-### Login
+### Home
 
 <p align="center">
   <img
-    src=".github/assets/login-page.png"
-    alt="Login Page Demonstration"
-    title="Login Page Demonstration"
+    src=".github/assets/home-page.png"
+    alt="Home Page Demonstration"
+    title="Home Page Demonstration"
     width="100%"
   />
 </p>
 
-### Início
+### Repositories
 
 <p align="center">
   <img
-    src=".github/assets/home-visitant-page.png"
-    alt="Home Visitant Page Demonstration"
-    title="Home Visitant Page Demonstration"
+    src=".github/assets/repositories-page.png"
+    alt="Repositories Page Demonstration"
+    title="Repositories Page Demonstration"
     width="100%"
   />
 </p>
 
-<p align="center">
-  <img
-    src=".github/assets/home-logged-in-page.png"
-    alt="Home Logged In Page Demonstration"
-    title="Home Logged In Page Demonstration"
-    width="100%"
-  />
-</p>
-
-### Perfil
+### Starred
 
 <p align="center">
   <img
-    src=".github/assets/profile-logged-in-page.png"
-    alt="Profile Logged In Page Demonstration"
-    title="Profile Logged In Page Demonstration"
-    width="100%"
-  />
-</p>
-
-<p align="center">
-  <img
-    src=".github/assets/profile-another-user-page.png"
-    alt="Profile Another User Page Demonstration"
-    title="Profile Another User Page Demonstration"
-    width="100%"
-  />
-</p>
-
-### Explorar
-
-<p align="center">
-  <img
-    src=".github/assets/explore-home-page.png"
-    alt="Explore Home Page Demonstration"
-    title="Explore Home Page Demonstration"
-    width="100%"
-  />
-</p>
-
-<p align="center">
-  <img
-    src=".github/assets/explore-detailed-book-page.png"
-    alt="Explore Detailed Book Page Demonstration"
-    title="Explore Detailed Book Page Demonstration"
-    width="100%"
-  />
-</p>
-
-<p align="center">
-  <img
-    src=".github/assets/explore-book-rate-login-page.png"
-    alt="Explore Book Rate Login Page Demonstration"
-    title="Explore Book Rate Login Page Demonstration"
-    width="100%"
-  />
-</p>
-
-<p align="center">
-  <img
-    src=".github/assets/explore-book-rate-comment-page-01.png"
-    alt="Explore Book Rate Comment Page Demonstration 01"
-    title="Explore Book Rate Comment Page Demonstration 01"
-    width="100%"
-  />
-</p>
-
-<p align="center">
-  <img
-    src=".github/assets/explore-book-rate-comment-page-02.png"
-    alt="Explore Book Rate Comment Page Demonstration 02"
-    title="Explore Book Rate Comment Page Demonstration 02"
-    width="100%"
-  />
-</p>
-
-<p align="center">
-  <img
-    src=".github/assets/explore-book-rate-comment-page-03.png"
-    alt="Explore Book Rate Comment Page Demonstration 03"
-    title="Explore Book Rate Comment Page Demonstration 03"
+    src=".github/assets/starred-page.png"
+    alt="Starred Page Demonstration"
+    title="Starred Page Demonstration"
     width="100%"
   />
 </p>
@@ -193,20 +117,13 @@ Passo a passo para clonar e executar a aplicação na sua máquina:
 
 ```bash
 # Clone este repositório
-$ git clone git@github.com:pabloxt14/book-wise.git
+$ git clone git@github.com:pabloxt14/github-profiles.git
 
 # Acesse a pasta do projeto no terminal
-$ cd book-wise
+$ cd github-profiles
 
 # Instale as dependências
 $ npm install
-
-# Crie uma arquivo .env e preencha conforme apresentado no arquivo .env.example
-
-# Executar seu banco de dados
-
-# Executar o seguinte comando para criar as migrations no banco
-$ npx prisma migrate dev
 
 # Execute a aplicação em modo de desenvolvimento
 $ npm run dev
@@ -221,17 +138,13 @@ $ npm run dev
 As seguintes principais ferramentas foram usadas na construção do projeto:
 
 - **[Vue.js](https://vuejs.org/)**
-- **[TypeScript](https://www.typescriptlang.org/)**
-- **[Stitches](https://stitches.dev/)**
-- **[RadixUI](https://www.radix-ui.com/)**
-- **[Prisma](https://www.prisma.io/)**
-- **[Zod](https://zod.dev/)**
-- **[Phosphor-Icons](https://phosphoricons.com/)**
-- **[@tanstack/react-query](https://tanstack.com/query/latest)**
+- **[Vue Router](https://router.vuejs.org/)**
+- **[TailwindCSS](https://tailwindcss.com/)**
+- **[Tailwind Merge](https://github.com/dcastil/tailwind-merge)**
+- **[Tailwind Variants](https://www.tailwind-variants.org/)**
+- **[Iconify](https://iconify.design/)**
 - **[Axios](https://axios-http.com/ptbr/docs/intro)**
-- **[Next-Auth](https://next-auth.js.org/)**
-- **[Next-SEO](https://github.com/garmeeh/next-seo)**
-- **[@uidotdev/usehooks](https://usehooks.com/)**
+- **[Pinia](https://pinia.vuejs.org/)**
 
 > Para mais detalhes das dependências gerais da aplicação veja o arquivo [package.json](./package.json)
 
